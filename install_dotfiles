@@ -1,8 +1,33 @@
 cd ~
+
+YUM_CMD=$(which dnf)
+APT_GET_CMD=$(which apt-get)
+
+# Install required package
+if [[ ! -z $YUM_CMD ]]; then
+	dnf install -y vim tmux ruby
+elif [[ ! -z $APT_GET_CMD ]]; then
+	apt-get vim tmux ruby-full
+else
+	echo "error can't install package"
+	exit 1;
+fi
+
+# install Tmuxinator
+gem install tmuxinator
+
+# Linking tmux Configuration
+rm ~/.tmux.conf
 ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 echo "Linked tmux configuration"
+
+# Linking bashrc aliaes, function, exports, extra function
+rm ~/.bashrc
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 echo "Linked alias configuration"
+
+# Setting workspace using tmuxinator
+rmdir ~/.tmuxinator
 ln -s ~/dotfiles/tmux/.tmuxinator ~/.tmuxinator
 
 bash ~/dotfiles/.vim/install.sh

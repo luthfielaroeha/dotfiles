@@ -8,11 +8,11 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 .git/MERGE_MSG
+badd +0 README.md
 argglobal
 silent! argdel *
-argadd .git/MERGE_MSG
-edit .git/MERGE_MSG
+argadd README.md
+edit README.md
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
@@ -28,11 +28,11 @@ setlocal fml=1
 setlocal fdn=20
 setlocal fen
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 15) / 31)
+let s:l = 4 - ((3 * winheight(0) + 16) / 32)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
+4
 normal! 0
 tabnext 1
 if exists('s:wipebuf')
