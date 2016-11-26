@@ -1,0 +1,8 @@
+cd ~
+ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
+echo "Linked tmux configuration"
+ln -s ~/dotfiles/.bashrc ~/.bashrc
+echo "Linked alias configuration"
+ln -s ~/dotfiles/tmux/.tmuxinator ~/.tmuxinator
+
+bash ~/dotfiles/.vim/install.sh
