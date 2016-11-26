@@ -8,11 +8,11 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 .gitignore
+badd +0 .git/MERGE_MSG
 argglobal
 silent! argdel *
-argadd .gitignore
-edit .gitignore
+argadd .git/MERGE_MSG
+edit .git/MERGE_MSG
 set splitbelow splitright
 set nosplitbelow
 set nosplitright
