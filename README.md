@@ -13,6 +13,6 @@ $ cd ~/dotfiles && ./install_dotfiles
 ```
 $ tmux 
 ```
-- install tmux plugin using keyboard shortcut. Press `\` + I`.
+- install tmux plugin using keyboard shortcut. Press ``` + I``.
 - Enjoy! :)
 
