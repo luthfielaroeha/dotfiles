@@ -8,7 +8,7 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +0 .gitignore
+badd +1 .gitignore
 argglobal
 silent! argdel *
 edit .gitignore

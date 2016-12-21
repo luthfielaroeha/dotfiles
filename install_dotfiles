@@ -22,8 +22,7 @@ ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 echo "Linked tmux configuration"
 
 # Linking bashrc aliaes, function, exports, extra function
-rm ~/.bashrc
-ln -s ~/dotfiles/.bashrc ~/.bashrc
+echo 'source ~/dotfiles/.bashrc' > ~/.bashrc
 echo "Linked alias configuration"
 
 # Setting workspace using tmuxinator
