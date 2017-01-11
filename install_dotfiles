@@ -7,7 +7,7 @@ APT_GET_CMD=$(which apt-get)
 if [[ ! -z $YUM_CMD ]]; then
 	dnf install -y vim tmux ruby
 elif [[ ! -z $APT_GET_CMD ]]; then
-	apt-get vim tmux ruby-full
+	apt-get install vim tmux zsh rubygems
 else
 	echo "error can't install package"
 	exit 1;
@@ -24,6 +24,10 @@ echo "Linked tmux configuration"
 # Linking bashrc aliaes, function, exports, extra function
 echo 'source ~/dotfiles/.bashrc' > ~/.bashrc
 echo "Linked alias configuration"
+
+# Linking zsh aliaes, function, exports, extra function
+echo 'source ~/dotfiles/.zshrc' > ~/.zshrc
+echo "Linked ZSH configuration"
 
 # Setting workspace using tmuxinator
 rmdir ~/.tmuxinator
