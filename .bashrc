@@ -5,7 +5,8 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# Configure Bash History
+export HISTCONTROL=ignoreboth:erasedups
 
 # User specific aliases and functions
 
