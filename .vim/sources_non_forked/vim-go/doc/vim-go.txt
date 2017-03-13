@@ -1016,7 +1016,7 @@ changing the behaviour of our custom static mappings. By default it's enabled.
 
 Use this option to auto |:GoFmt| on save. By default it's enabled >
 
-  let g:go_fmt_autosave = 1
+  let g:go_fmt_autosave = 0
 <
                                                           *'g:go_fmt_command'*
 

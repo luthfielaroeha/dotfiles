@@ -1,7 +1,7 @@
-# ~/.tmuxinator/coolendar.yml
+# ~/.tmuxinator/personal.yml
 
-name: coolendar
-root: ~/
+name: personal
+root: ~/development/personal
 
 # Optional tmux socket
 # socket_name: foo
@@ -28,9 +28,18 @@ root: ~/
 # attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t coolendar
+# post: tmux -CC attach -t personal
 
 windows:
+  - server:
+      layout: 525f,149x37,0,0{80x37,0,0,0,68x37,81,0[68x18,81,0,1,68x18,81,19,2]}
+      panes:
+        - cd colsys-web && yarn start
+        - cd iot-broker; ./start-broker.sh
+        - cd iot-broker; sleep 5s; ./subscribe.sh
   - editor: vim
-  - server: ls
-  - logs: 
+  - console: 
+      layout: main-vertical
+      panes: 
+        -
+        - cd colsys-backend; ./run.sh; sleep 5s; ./ssh.sh
