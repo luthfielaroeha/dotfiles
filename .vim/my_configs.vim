@@ -69,3 +69,5 @@ set noexpandtab
 set tabstop=4
 set shiftwidth=4
 
+" Set space to run @q macro
+:nnoremap <Space> @q
