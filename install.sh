@@ -12,6 +12,7 @@ ln_flags="-shf"
 packages=()
 
 # TODO: OS Specific configuration
+# TODO: Create a script to install package based on OS type
 # -----------------------------------------------
 if [[ $(uname) == "Linux" ]]; then
     echo "Creating symlinks on Linux"
