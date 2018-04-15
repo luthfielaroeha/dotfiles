@@ -32,8 +32,6 @@ for i in "${dotfiles[@]}"; do
    ln "$ln_flags" $PWD/$os/$i ~/.$i
 done
 
-for i in "${packages
-
 # General dotfiles 
 # -----------------------------------------------
 # ZSH 
@@ -50,9 +48,16 @@ echo "Creating symlinks for Git configuration"
 ln "$ln_flags" "$PWD/git/gitconfig" "$HOME/.gitconfig"
 ln "$ln_flags" "$PWD/git/gitignore" "$HOME/.gitignore"
 
-# TODO: Vim
+# Vim
 # TODO: Install Vim / NeoVim
 # TODO: Vim configuration
+NEOVIM_DIR=$HOME/.config/nvim
+VIM_DIR=$HOME/.vim
+mkdir -p "$VIM_DIR"
+
+ln "$ln_flags" "$VIM_DIR" "$NEOVIM_DIR"
+ln "$ln_flags" "$PWD/vim" "$VIM_DIR/config"
+ln "$ln_flags" "$PWD/vim/nvimrc" "$NEOVIM_DIR/init.vim"
 
 # TODO: Tmux
 # TODO: Install Tmux & Tmuxinator (?)
