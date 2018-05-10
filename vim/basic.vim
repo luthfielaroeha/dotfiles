@@ -1,6 +1,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Maintainer: 
-"       Amir Salihefendic — @amix3k
+"       Muhamad Luthfie La Roeha - @luthfielaroeha
+"
+"       Heavily inspired by https://www.github.com/amix/vimrc configuration
 "
 " Sections:
 "    -> General
@@ -230,6 +232,9 @@ vmap <C-v> c<ESC>"+p
 
 " Copy relative filepath (based on cwd) of current buffer
 nnoremap <leader>fp :let @+ = expand("%")<CR>
+
+" Auto closing HTML Tag
+:iabbrev <// </<C-X><C-O><Esc>==gi
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Misc
