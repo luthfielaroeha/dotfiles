@@ -36,6 +36,8 @@ endif
 " => Vue
 Plug 'posva/vim-vue'
 
+" => Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -62,6 +64,7 @@ let g:NERDCompactSexyComs = 1
 """"""""""""""""""""""""""""""
 " => Nerd Tree
 """"""""""""""""""""""""""""""
+
 let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=0
 let g:NERDTreeWinSize=35
@@ -78,6 +81,18 @@ map <leader>g :Ack
 " => Ale
 let g:ale_sign_error = '×'
 let g:ale_sign_warning = '!'
+
+highlight ALEWarning ctermbg=8
+
+nmap <silent> <C-j> :ALENext<cr>
+nmap <silent> <C-k> :ALEPrevious<cr>
+
+let g:ale_fixers = {
+\  '*': ['remove_trailing_lines', 'trim_whitespace'],
+\  'javascript': ['eslint']
+\}
+
+let g:ale_fix_on_save = 1
 
 " => Deoplete
 let g:deoplete#enable_at_startup = 1
