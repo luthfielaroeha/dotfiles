@@ -96,6 +96,9 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" Show line number
+set number
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -159,8 +162,8 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 map <silent> <leader><cr> :noh<cr>
 
 " Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
+" map <C-j> <C-W>j
+" map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
@@ -170,6 +173,10 @@ map <leader>bd :Bclose<cr>:tabclose<cr>gT
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
 
+" Open previous buffer
+map <leader>z <C-^>
+
+" Navigate between buffer
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
 
@@ -240,6 +247,8 @@ nnoremap <leader>fp :let @+ = expand("%")<CR>
 " Toggle paste mode on and off
 map <leader>pp :setlocal paste!<cr>
 
+" Alias for reload vimrc
+:command! Reload source $MYVIMRC
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions

@@ -40,7 +40,7 @@ done
 # - zsh-autosuggestions (https://github.com/zsh-users/zsh-autosuggestions)
 echo "Creating symlinks for ZSH configuration"
 ln "$ln_flags" "$PWD/zsh" "$HOME/.zsh"
-ln "$ln_flags" "$PWD/zsh/zshrc" "$HOME/.zshrc"
+echo "source $HOME/.zsh/zshrc" >> "\$HOME/.zshrc"
 
 # Git
 # TODO: Install Git

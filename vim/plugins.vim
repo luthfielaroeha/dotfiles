@@ -26,6 +26,8 @@ Plug 'nvim-telescope/telescope.nvim'
 " => Vue
 Plug 'posva/vim-vue'
 
+" => Go
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -44,6 +46,7 @@ let g:NERDCompactSexyComs = 1
 """"""""""""""""""""""""""""""
 " => Nerd Tree
 """"""""""""""""""""""""""""""
+
 let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=0
 let g:NERDTreeWinSize=35
