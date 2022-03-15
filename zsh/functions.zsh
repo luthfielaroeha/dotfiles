@@ -16,3 +16,9 @@ function dev() {
 function copy_content {
   cat $1 | pbcopy
 }
+
+# CPP
+
+function crun() {
+  mkdir -p "build" && g++ $1.cpp -std=c++17 -o build/$1.out && ./build/$1.out
+}

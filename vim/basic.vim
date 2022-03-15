@@ -115,11 +115,6 @@ if has("gui_running")
   endif
 endif
 
-try
-    colorscheme tender
-catch
-endtry
-
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
@@ -177,6 +172,9 @@ map <leader>ba :bufdo bd<cr>
 
 map <leader>l :bnext<cr>
 map <leader>h :bprevious<cr>
+
+" Open previous buffer
+map <leader>z <C-^>
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>

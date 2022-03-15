@@ -14,3 +14,7 @@ let configs = [
 for file in configs
   execute 'source' Dot(file)
 endfor
+
+" Lua file configurations
+lua require('lua/plugins')
+lua require('lua/lsp')
