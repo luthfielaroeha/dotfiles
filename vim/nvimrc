@@ -4,7 +4,7 @@ function! Dot(path)
 endfunction
 
 let configs = [
-  \'basic.vim'
+  \'basic.vim',
 \]
   " \'filetypes.vim',
   " \'colors.vim'
