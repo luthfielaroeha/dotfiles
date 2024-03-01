@@ -16,3 +16,11 @@ if not uv.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
+
+-- Load plugin specs from lua/plugins/*.lua
+require("lazy").setup("plugins", {
+  defaults = { lazy = true },
+  checker = { enabled = true },
+  install = { colorscheme = { "tokyonight" } },
+  change_detection = { notify = false },
+})
