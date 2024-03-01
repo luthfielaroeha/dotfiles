@@ -7,11 +7,6 @@
 local cmp = require("cmp")
 cmp.setup({
   preselect = cmp.PreselectMode.None,
-  snippet = {
-    expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
-    end,
-  },
   mapping = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-n>"] = cmp.mapping.select_next_item(),
@@ -31,7 +26,6 @@ cmp.setup({
   -- Installed sources
   sources = {
     { name = "nvim_lsp" },
-    { name = "vsnip" },
     { name = "path" },
     { name = "buffer" },
   },
