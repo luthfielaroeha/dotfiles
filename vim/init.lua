@@ -1,2 +1,3 @@
-require('lua/basic')
-require('lua/plugin')
+require('config.keymaps')
+require('config.options')
+require('plugins')

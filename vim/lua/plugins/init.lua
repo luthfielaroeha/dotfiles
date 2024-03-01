@@ -42,10 +42,10 @@ require('packer').startup(function()
   }
 end)
 
-require('lua/plugin/colorscheme')
-require('lua/plugin/nerdtree')
-require('lua/plugin/nvim-cmp')
-require('lua/plugin/telescope')
-require('lua/plugin/treesitter')
-require('lua/plugin/lsp')
+require('plugins.colorscheme')
+require('plugins.nerdtree')
+require('plugins.nvim-cmp')
+require('plugins.telescope')
+require('plugins.treesitter')
+require('plugins.lsp')
 
