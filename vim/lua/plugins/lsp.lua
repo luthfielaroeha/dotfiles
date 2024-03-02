@@ -50,4 +50,10 @@ return {
     lazy = true,
     config = false,
   },
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      {'hrsh7th/cmp-nvim-lsp'},
+    }
+  },
 }

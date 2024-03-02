@@ -92,6 +92,34 @@ M.neotree = function()
   map('n', '<leader>nf', ':Neotree reveal<CR>', opts)
 end
 
-M.builtin()
-M.telescope()
-M.neotree()
+M.formatter = function()
+  autofmt = function()
+    require("conform").format({ async = true, lsp_fallback = true })
+  end
+
+  map('n', '<leader>%', autofmt, opts)
+end
+
+M.autocompletion = function()
+  local cmp = require("cmp")
+
+  return {
+    ["<C-p>"] = cmp.mapping.select_prev_item(),
+    ["<C-n>"] = cmp.mapping.select_next_item(),
+    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-d>"] = cmp.mapping.scroll_docs(4),
+    ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+    ["<C-Space>"] = cmp.mapping.complete(),
+    ["<C-e>"] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }
+end
+
+M.init = function()
+  M.builtin()
+  M.telescope()
+  M.neotree()
+  M.formatter()
+end
+
+return M
