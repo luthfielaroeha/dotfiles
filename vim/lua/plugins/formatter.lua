@@ -24,5 +24,6 @@ return {
 	"stevearc/conform.nvim",
 	event = "BufWritePre",
 	cmd = "ConformInfo",
+  enabled = false,
 	opts = opts,
 }

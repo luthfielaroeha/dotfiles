@@ -1,6 +1,7 @@
 -- Autocompletion framework
 local config = function()
-  local cmp = require("cmp")
+  local cmp = require('cmp')
+  local lsp_zero = require('lsp-zero')
 
   cmp.setup({
     snippet = {
@@ -9,6 +10,7 @@ local config = function()
         require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
       end,
     },
+    formatting = lsp_zero.cmp_format(),
     preselect = cmp.PreselectMode.None,
     mapping = require('config.keymaps').autocompletion(),
     sources = cmp.config.sources({
@@ -37,13 +39,6 @@ local config = function()
       { name = 'cmdline' }
     })
   })
-
-  -- Set up lspconfig.
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  -- require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
-    -- capabilities = capabilities
-  -- }
 end
 
 return {

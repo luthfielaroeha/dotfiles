@@ -103,6 +103,10 @@ end
 M.autocompletion = function()
   local cmp = require("cmp")
 
+  local lsp_zero = require('lsp-zero')
+  lsp_zero.extend_cmp()
+  local cmp_action = lsp_zero.cmp_action()
+
   return {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-n>"] = cmp.mapping.select_next_item(),
@@ -112,6 +116,8 @@ M.autocompletion = function()
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
   }
 end
 

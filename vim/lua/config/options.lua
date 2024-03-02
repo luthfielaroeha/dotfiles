@@ -40,7 +40,10 @@ vim.opt.hidden = true
 
 -- Configure backspace so it acts as it should act
 vim.opt.backspace:append('eol', 'start', 'indent')
-vim.opt.whichwrap:append('<', '>', 'h', 'l')
+vim.opt.whichwrap:append('<')
+vim.opt.whichwrap:append('>')
+vim.opt.whichwrap:append('h')
+vim.opt.whichwrap:append('l')
 
 -- Ignore case when searching
 vim.opt.ignorecase = true
