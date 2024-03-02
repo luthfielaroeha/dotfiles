@@ -1,5 +1,7 @@
 local config = function()
   require("neo-tree").setup({
+    enable_normal_mode_for_inputs = true,
+    close_if_last_window = true,
     window = {
       position = "right",
       width = 40,
