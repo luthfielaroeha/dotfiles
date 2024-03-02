@@ -1,26 +1,14 @@
 M = {}
 
-------------------------------
--- ===> Telescope
--- Find files using Telescope command-line sugar.
-------------------------------
-M.telescope = function()
-  local map = vim.keymap.set
-  local opts = { noremap=true, silent=true }
+local map = vim.keymap.set
+local opts = { noremap = true, silent = true }
+local noremap = { noremap = true }
+local slient = { silent = true }
 
-  map('n', '<Leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>", opts)
-  map('n', '<Leader>fc', "<cmd>lua require('telescope.builtin').command_history()<CR>", opts)
-  map('n', '<Leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
-  map('n', '<Leader>fo', "<cmd>lua require('telescope.builtin').buffers()<CR>", opts)
-  map('n', '<Leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>", opts)
-end
-
+------------------------------
+-- => Builtin keymap
+------------------------------
 M.builtin = function()
-  local map = vim.keymap.set
-  local opts = { noremap = true, silent = true }
-  local noremap = { noremap = true }
-  local slient = { silent = true }
-
   ------------------------------
   -- => Visual mode related
   ------------------------------
@@ -74,5 +62,36 @@ M.builtin = function()
   map("n", "<leader>fp", ":let @+ = expand('%')<CR>", noremap)
 end
 
+
+------------------------------
+-- ===> Telescope
+-- Find files using Telescope command-line sugar.
+------------------------------
+M.telescope = function()
+  -- local map = vim.keymap.set
+  -- local opts = { noremap=true, silent=true }
+
+  map('n', '<Leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>", opts)
+  map('n', '<Leader>fc', "<cmd>lua require('telescope.builtin').command_history()<CR>", opts)
+  map('n', '<Leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
+  map('n', '<Leader>fo', "<cmd>lua require('telescope.builtin').buffers()<CR>", opts)
+  map('n', '<Leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>", opts)
+end
+
+------------------------------
+-- ===> Neotree
+-- Filesystem explorer
+------------------------------
+M.neotree = function()
+  -- local opts = { noremap=true, silent=true }
+  -- local map = vim.keymap.set
+
+  map('n', '<leader>nn', ':Neotree toggle<CR>', opts)
+
+  -- Open current file location in Neotree
+  map('n', '<leader>nf', ':Neotree reveal<CR>', opts)
+end
+
 M.builtin()
 M.telescope()
+M.neotree()
