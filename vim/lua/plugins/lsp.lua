@@ -78,7 +78,12 @@ return {
       require('lspconfig').lua_ls.setup(lua_opts)
 
       -- Setup LSP server for javascript & rust
-      lsp_zero.setup_servers({'tsserver', 'rust_analyzer'})
+      lsp_zero.setup_servers({'tsserver'})
     end
+  },
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^4', -- Recommended
+    ft = { 'rust' },
   }
 }

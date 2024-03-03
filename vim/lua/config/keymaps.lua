@@ -3,7 +3,7 @@ M = {}
 local map = vim.keymap.set
 local opts = { noremap = true, silent = true }
 local noremap = { noremap = true }
-local slient = { silent = true }
+local silent = { silent = true }
 
 ------------------------------
 -- => Builtin keymap
@@ -20,7 +20,7 @@ M.builtin = function()
   -- => Moving around, tabs, windows and buffers
   ---------------------------------------------------------------
   -- Disable highlight when <leader><cr> is pressed
-  map('', '<leader><cr>', ':noh<cr>', opts)
+  map('', '<Esc>', ':noh<cr>', opts)
 
   -- Smart way to move between windows
   map('', '<C-h>', '<C-W>h', noremap)

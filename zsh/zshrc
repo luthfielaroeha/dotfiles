@@ -108,6 +108,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Smarter cd command
+eval "$(zoxide init --cmd cd zsh)"
+
 # Load user custom configuration
 for config_file in $ZSH_CONFIG/*.zsh; do
   source $config_file

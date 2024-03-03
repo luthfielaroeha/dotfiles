@@ -73,3 +73,6 @@ ln "$ln_flags" "$PWD/tmux/tmux.conf" "$HOME/.tmux.conf"
 # TODO: FZF
 # brew install fzf
 # $(brew --prefix)/opt/fzf/install
+
+# TODO: Zoxide
+# brew install zoxide
