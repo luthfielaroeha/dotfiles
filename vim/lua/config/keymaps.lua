@@ -121,11 +121,26 @@ M.autocompletion = function()
   }
 end
 
+M.lsp = function()
+  local quickfix = function()
+    vim.lsp.buf.code_action({
+      filter = function(a) return a.isPreferred end,
+      apply = true
+    })
+  end
+
+  map('n', '<C-k>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+  map('n', '<C-j>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+
+  map('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+end
+
 M.init = function()
   M.builtin()
   M.telescope()
   M.neotree()
   M.formatter()
+  M.lsp()
 end
 
 return M

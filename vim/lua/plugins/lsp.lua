@@ -1,46 +1,43 @@
-local config = function()
+local lspconfig = function()
   ------------------------------------------------
-  -- LSP servers
+  -- LSP Zero default config
   ------------------------------------------------
+  local lsp_zero = require('lsp-zero')
+  lsp_zero.extend_lspconfig()
 
-  local servers = {
-    'rust_analyzer',
-    'eslint'
-  }
-
-  for _, lsp in pairs(servers) do
-    require('lspconfig')[lsp].setup {
-      on_attach = on_attach,
-      flags = {
-        -- This will be the default in neovim 0.7+
-        debounce_text_changes = 150,
-      }
-    }
-  end
+  lsp_zero.on_attach(function(client, bufnr)
+    -- see :help lsp-zero-keybindings
+    -- to learn the available actions
+    lsp_zero.default_keymaps({buffer = bufnr})
+  end)
 
   ------------------------------------------------
-  -- LSP keybinding
+  -- LSP Theme
   ------------------------------------------------
-
-  local opts = { noremap=true, silent=true }
-
-  vim.api.nvim_set_keymap('n', '<C-k>', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-  vim.api.nvim_set_keymap('n', '<C-j>', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-
-  vim.api.nvim_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  vim.api.nvim_set_keymap('n', '<Leader>F', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-
+  -- Setup Sign Icons
+  lsp_zero.set_sign_icons({
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = '»'
+  })
 
   ------------------------------------------------
-  -- LSP theme
+  -- Server Configuration
   ------------------------------------------------
+  -- Lua for Neovim
+  local lua_opts = lsp_zero.nvim_lua_ls()
+  require('lspconfig').lua_ls.setup(lua_opts)
 
-  local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-
-  for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-  end
+  -- Javascript eslint
+  require('lspconfig').eslint.setup({
+    on_attach = function(client, bufnr)
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = bufnr,
+        command = "EslintFixAll",
+      })
+    end,
+  })
 end
 
 return {
@@ -63,23 +60,7 @@ return {
     dependencies = {
       {'hrsh7th/cmp-nvim-lsp'},
     },
-    config = function()
-      local lsp_zero = require('lsp-zero')
-      lsp_zero.extend_lspconfig()
-
-      lsp_zero.on_attach(function(client, bufnr)
-        -- see :help lsp-zero-keybindings
-        -- to learn the available actions
-        lsp_zero.default_keymaps({buffer = bufnr})
-      end)
-
-      -- Configure lua language server for neovim
-      local lua_opts = lsp_zero.nvim_lua_ls()
-      require('lspconfig').lua_ls.setup(lua_opts)
-
-      -- Setup LSP server for javascript & rust
-      lsp_zero.setup_servers({'tsserver'})
-    end
+    config = lspconfig,
   },
   {
     'mrcjkb/rustaceanvim',
