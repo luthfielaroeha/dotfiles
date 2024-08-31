@@ -23,6 +23,7 @@ return {
     dependencies = {
       { 'nvim-lua/plenary.nvim' }
     },
+    lazy = false,
     config = config,
     cmd = "Telescope",
 		event = { "BufReadPre", "BufNewFile" },

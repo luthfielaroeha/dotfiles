@@ -38,6 +38,8 @@ local lspconfig = function()
       })
     end,
   })
+
+  require('lspconfig').tsserver.setup({ });
 end
 
 return {

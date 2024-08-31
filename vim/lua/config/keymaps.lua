@@ -68,14 +68,13 @@ end
 -- Find files using Telescope command-line sugar.
 ------------------------------
 M.telescope = function()
-  -- local map = vim.keymap.set
-  -- local opts = { noremap=true, silent=true }
+  local builtin = require('telescope.builtin')
 
-  map('n', '<Leader>ff', "<cmd>lua require('telescope.builtin').find_files()<CR>", opts)
-  map('n', '<Leader>fc', "<cmd>lua require('telescope.builtin').command_history()<CR>", opts)
-  map('n', '<Leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
-  map('n', '<Leader>fo', "<cmd>lua require('telescope.builtin').buffers()<CR>", opts)
-  map('n', '<Leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<CR>", opts)
+  map('n', '<Leader>ff', builtin.find_files, opts)
+  map('n', '<Leader>fc', builtin.command_history, opts)
+  map('n', '<Leader>fg', builtin.live_grep, opts)
+  map('n', '<Leader>fo', builtin.buffers, opts)
+  map('n', '<Leader>fh', builtin.help_tags, opts)
 end
 
 ------------------------------
